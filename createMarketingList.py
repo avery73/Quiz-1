@@ -22,24 +22,36 @@
 
 
 import csv
+from collections import defaultdict
+
+
 
 # open the vendorlist file
-
+infile = open("VendorList.csv","r")
 
 # create a csv object from the file object
-
+csvfile = csv.reader(infile,delimiter=",")
+next(csvfile) # skips header
 
 # create an output file
-
+outfile = open("marketinglistFINAL.csv","w")
 
 
 
 
 # create an empty dictionary
+dictionary = {}
+key = []
+values = []
 
 
+# code goes here
+for record in csvfile:
+    #print(record)
+    [0]
+    print(record)
+    #d = {m[a]:m[a+]}
 
-# iterate through the csv object
 
 
 
@@ -49,12 +61,33 @@ import csv
 
 
 # print the dictionary after the loop is finished
-
+#print(dictionary)
 
 
 # iternate through the dictionary and write to the output file
+#outfile.write(str(dict(res)))
 
 
 
 # close your output file
+infile.close()
+outfile.close()
 
+'''
+
+# iterate through the csv object
+for line in csvfile:
+    name = (line[1] + " " + line[2])
+    key.append(name)
+    info = (line[4] + "," + line[5])
+    values.append(info)
+#print(key)
+#print(values)
+
+res = defaultdict(list)
+for i, j in zip(key, values):
+    res[i].append(j)
+
+print(str(dict(res)))
+
+'''
